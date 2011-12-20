@@ -1,11 +1,10 @@
 if [ ! "$TERM" = "screen" ]
 then
   screen -R
-fi
-
-if [ -f stay ]
-then
-  rm stay
-else
-  exit
+  if [ -f stay ]
+  then
+    rm stay
+  else
+    exit
+  fi
 fi
