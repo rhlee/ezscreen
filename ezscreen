@@ -1,6 +1,8 @@
 if [ ! "$TERM" = "screen" ]
 then
-  screen -R
+  screen -ls
+  screen -ls | grep Dead | sed 's/	\([0-9]*\).*/\1/' | xargs -n1 kill -s SIGHUP
+  screen -RR
   if [ -f stay ]
   then
     rm stay
